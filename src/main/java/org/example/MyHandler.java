@@ -22,6 +22,7 @@ public class MyHandler implements HttpHandler {
         String[] param = query.split("[=&]");
 
         String output = "";
+        ArrayList<Wine> box = (ArrayList<Wine>) wines.clone();
         if(param[0].equals("cmd")){
             switch(param[1]){
                 case "all":
@@ -41,6 +42,24 @@ public class MyHandler implements HttpHandler {
                         if(wines.get(i).getType().equals("white")){
                             output += wines.get(i) + "<br>";
                         }
+                    }
+                    break;
+                case "sorted_by_name":
+                    box.sort((w1, w2) -> {
+                        return w1.getName().compareTo(w2.getName());
+                    });
+                    for(int i = 0; i < box.size(); i++) {
+                        output += box.get(i) + "<br>";
+                    }
+                    break;
+                case "sorted_by_price":
+                    box.sort((w1, w2) -> {
+                        if(w1.getPrice() > w2.getPrice()) return 1;
+                        if(w1.getPrice() < w2.getPrice()) return -1;
+                        return 0;
+                    });
+                    for(int i = 0; i < box.size(); i++) {
+                        output += box.get(i) + "<br>";
                     }
                     break;
             }
