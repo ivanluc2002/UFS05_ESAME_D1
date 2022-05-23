@@ -5,15 +5,25 @@ import com.sun.net.httpserver.HttpHandler;
 
 import java.io.*;
 import java.net.URI;
+import java.util.ArrayList;
 
 public class MyHandler implements HttpHandler {
+    private final ArrayList<Wine> wines;
+
+    public MyHandler(ArrayList<Wine> wines) {
+        this.wines = wines;
+    }
 
     public void handle(HttpExchange t) throws IOException {
         InputStream is = t.getRequestBody();
 
         URI uri = t.getRequestURI();
         String query = uri.getQuery();
-        String s = read(is); // .. read the request body
+        String output = "";
+
+        for(int i = 0; i < wines.size(); i++) {
+            output += wines.get(i) + "<br>";
+        }
 
         String response = "<!doctype html>\n" +
                 "<html lang=en>\n" +
@@ -22,16 +32,7 @@ public class MyHandler implements HttpHandler {
                 "<title>MyJava Sample</title>\n" +
                 "</head>\n" +
                 "<body>\n" +
-
-                "</br>I'm the content" +
-                "</br>\n" +
-                s +
-
-                "</br>query:" +
-                "</br>\n" +
-                query +
-                "risultato"+
-
+                output +
                 "</body>\n" +
                 "</html>\n";
 

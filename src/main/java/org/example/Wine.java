@@ -1,13 +1,10 @@
 package org.example;
 
-import java.util.ArrayList;
-
 public class Wine {
     private int id;
     private String name;
     private double price;
     private String type;
-    ArrayList<Wine> vino;
 
 
     public Wine(int id, String name, double price, String type) {
@@ -15,7 +12,6 @@ public class Wine {
         this.name = name;
         this.price = price;
         this.type = type;
-
     }
 
     public int getId() {
