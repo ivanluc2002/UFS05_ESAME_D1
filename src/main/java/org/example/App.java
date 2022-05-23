@@ -29,10 +29,10 @@ public class App
                     "\"type\": \"white\"\n"+
                     " },\n" +
                     "\"id\": \"14\",\n" +
-                " \"name\": \"Pignoli\"\n" +
-                "\"price\": \"133,0\"\n"+
-                "\"type\": \"red\"\n"+
-                " },\n" +
+                    " \"name\": \"Pignoli\"\n" +
+                    "\"price\": \"133,0\"\n"+
+                    "\"type\": \"red\"\n"+
+                    " },\n" +
                     "\"id\": \"124\",\n" +
                 " \"name\": \"pinot nero\"\n" +
                 "\"price\": \"43\"\n"+
