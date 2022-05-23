@@ -1,24 +1,24 @@
 package org.example;
 
 public class Wine {
-    private String id;
+    private int id;
     private String name;
     private double price;
     private String type;
 
 
-    public Wine(String id, String name, double price, String type) {
+    public Wine(int id, String name, double price, String type) {
         this.id = id;
         this.name = name;
         this.price = price;
         this.type = type;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
