@@ -19,11 +19,34 @@ public class MyHandler implements HttpHandler {
 
         URI uri = t.getRequestURI();
         String query = uri.getQuery();
-        String output = "";
+        String[] param = query.split("[=&]");
 
-        for(int i = 0; i < wines.size(); i++) {
-            output += wines.get(i) + "<br>";
+        String output = "";
+        if(param[0].equals("cmd")){
+            switch(param[1]){
+                case "all":
+                    for(int i = 0; i < wines.size(); i++) {
+                        output += wines.get(i) + "<br>";
+                    }
+                    break;
+                case "red":
+                    for(int i = 0; i < wines.size(); i++) {
+                        if(wines.get(i).getType().equals("red")){
+                            output += wines.get(i) + "<br>";
+                        }
+                    }
+                    break;
+                case "white":
+                    for(int i = 0; i < wines.size(); i++) {
+                        if(wines.get(i).getType().equals("white")){
+                            output += wines.get(i) + "<br>";
+                        }
+                    }
+                    break;
+            }
         }
+
+
 
         String response = "<!doctype html>\n" +
                 "<html lang=en>\n" +
