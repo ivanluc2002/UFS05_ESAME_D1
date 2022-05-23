@@ -1,10 +1,13 @@
 package org.example;
 
+import java.util.ArrayList;
+
 public class Wine {
     private int id;
     private String name;
     private double price;
     private String type;
+    ArrayList<Wine> vino;
 
 
     public Wine(int id, String name, double price, String type) {
@@ -12,6 +15,7 @@ public class Wine {
         this.name = name;
         this.price = price;
         this.type = type;
+        new ArrayList<Wine>(vino);
     }
 
     public int getId() {
@@ -44,5 +48,15 @@ public class Wine {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    @Override
+    public String toString() {
+        return "Wine{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                ", type='" + type + '\'' +
+                '}';
     }
 }
