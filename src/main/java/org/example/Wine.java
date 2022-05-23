@@ -15,7 +15,7 @@ public class Wine {
         this.name = name;
         this.price = price;
         this.type = type;
-        new ArrayList<Wine>(vino);
+
     }
 
     public int getId() {
